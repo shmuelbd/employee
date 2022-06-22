@@ -1,0 +1,22 @@
+[
+    {
+        "name": "avi",
+        "id": "1",
+        "role": "manager"
+    },
+    {
+        "name": "avi2",
+        "id": "2",
+        "role": "manager"
+    },
+    {
+        "name": "avi3",
+        "id": "3",
+        "role": "manager"
+    },
+    {
+        "name": "avi4",
+        "id": "4",
+        "role": "manager"
+    }
+]

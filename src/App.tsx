@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./components/pages/home";
+import ManagementEmployee from "./components/pages/Management Employee";
+import Header from "./components/pages/header";
+import Footer from "./components/pages/footer";
+import AllEmployees from "./components/pages/All Employees";
+import styled from 'styled-components';
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import AddEmployee from "./components/pages/add Employee";
+import ModalEror from "./components/global components/modal error/index";
+
+const Container = styled.div`
+display: flex;
+justify-content: center;
+align-content: flex-start;
+flex-wrap: wrap;
+width: 100%;
+height: 100vh;
+`;
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Container>
+        <ModalEror />
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/AllEmployees" element={<AllEmployees />} />
+            <Route path="/ManagementEmployee" element={<ManagementEmployee />} />
+            <Route path="/AddEmployee" element={<AddEmployee />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Container>
+    </Provider>
+
   );
 }
 
